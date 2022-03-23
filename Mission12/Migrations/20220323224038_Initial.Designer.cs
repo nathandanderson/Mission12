@@ -8,7 +8,7 @@ using Mission12.Models;
 namespace Mission12.Migrations
 {
     [DbContext(typeof(TempleContext))]
-    [Migration("20220323173907_Initial")]
+    [Migration("20220323224038_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,12 +70,10 @@ namespace Mission12.Migrations
                     b.Property<string>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("TimeValueId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("TimeValue")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("TimeID");
-
-                    b.HasIndex("TimeValueId");
 
                     b.ToTable("Times");
 
@@ -85,88 +83,35 @@ namespace Mission12.Migrations
                             TimeID = 1,
                             Booked = true,
                             Date = "3/23/2022",
-                            TimeValueId = 3
-                        });
-                });
-
-            modelBuilder.Entity("Mission12.Models.TimeValue", b =>
-                {
-                    b.Property<int>("TimeValueId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("TimeValueName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("TimeValueId");
-
-                    b.ToTable("TimeValue");
-
-                    b.HasData(
-                        new
-                        {
-                            TimeValueId = 1,
-                            TimeValueName = "8:00 AM"
+                            TimeValue = "8:00 AM"
                         },
                         new
                         {
-                            TimeValueId = 2,
-                            TimeValueName = "9:00 AM"
+                            TimeID = 2,
+                            Booked = true,
+                            Date = "3/23/2022",
+                            TimeValue = "9:00 AM"
                         },
                         new
                         {
-                            TimeValueId = 3,
-                            TimeValueName = "10:00 AM"
+                            TimeID = 3,
+                            Booked = true,
+                            Date = "3/23/2022",
+                            TimeValue = "11:00 AM"
                         },
                         new
                         {
-                            TimeValueId = 4,
-                            TimeValueName = "11:00 AM"
+                            TimeID = 4,
+                            Booked = true,
+                            Date = "3/24/2022",
+                            TimeValue = "10:00 AM"
                         },
                         new
                         {
-                            TimeValueId = 5,
-                            TimeValueName = "12:00 AM"
-                        },
-                        new
-                        {
-                            TimeValueId = 6,
-                            TimeValueName = "1:00 PM"
-                        },
-                        new
-                        {
-                            TimeValueId = 7,
-                            TimeValueName = "2:00 PM"
-                        },
-                        new
-                        {
-                            TimeValueId = 8,
-                            TimeValueName = "3:00 PM"
-                        },
-                        new
-                        {
-                            TimeValueId = 9,
-                            TimeValueName = "4:00 PM"
-                        },
-                        new
-                        {
-                            TimeValueId = 10,
-                            TimeValueName = "5:00 PM"
-                        },
-                        new
-                        {
-                            TimeValueId = 11,
-                            TimeValueName = "6:00 PM"
-                        },
-                        new
-                        {
-                            TimeValueId = 12,
-                            TimeValueName = "7:00 PM"
-                        },
-                        new
-                        {
-                            TimeValueId = 13,
-                            TimeValueName = "8:00 PM"
+                            TimeID = 5,
+                            Booked = true,
+                            Date = "3/24/2022",
+                            TimeValue = "3:00 PM"
                         });
                 });
 
@@ -175,15 +120,6 @@ namespace Mission12.Migrations
                     b.HasOne("Mission12.Models.Time", "Time")
                         .WithMany()
                         .HasForeignKey("TimeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Mission12.Models.Time", b =>
-                {
-                    b.HasOne("Mission12.Models.TimeValue", "TimeValue")
-                        .WithMany()
-                        .HasForeignKey("TimeValueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

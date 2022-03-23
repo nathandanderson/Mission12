@@ -11,15 +11,22 @@ namespace Mission12.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private TempleContext daContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        // Constructor
+        public HomeController(TempleContext temple)
         {
-            _logger = logger;
+            daContext = temple ;
         }
 
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult Times()
+        {
+            ViewBag.Times = daContext.Times.ToList();
             return View();
         }
 
@@ -28,31 +35,30 @@ namespace Mission12.Controllers
             return View();
         }
 
-        public IActionResult Signup()
-        {
-            return View();
-        }
+        private ITempleRepository repo { get; set; }
 
-        //private TestISignupRepository repo { get; set; }
 
         [HttpGet]
         public IActionResult SignUp()
         {
-            return View(new Appointment());
+            return View();
         }
 
         [HttpPost]
-        public IActionResult Signup(Appointment appointment)
+        public IActionResult Signup(Appointment a)
         {
 
             if (ModelState.IsValid)
             {
-                repo.SaveAppointment(appointment);
+                daContext.Add(a);
+                daContext.SaveChanges();
 
-                return RedirectToPage("/Index");
+                return RedirectToAction("Index");
             }
             else
             {
+                ViewBag.Times = daContext.Times.ToList();
+
                 return View();
             }
         }

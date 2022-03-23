@@ -2,7 +2,36 @@
     ViewData["Title"] = "View All Page";
 }
 
+@model List<TestAppointmentResponse>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome to the View All Appointments Page</h1>
+    <h1 class="display-4">All Appointments Page</h1>
 </div>
 
+<table class="table table-bordered table-striped">
+
+    <thead class="font-weight-bold">
+        <tr>
+            <th>Name of Group</th>
+            <th>Size of Group</th>
+            <th>Email Address</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.testgroupname</td>
+                <td>@a.testgroupsize</td>
+                <td>@a.testemail</td>
+                <td>@a.testphone</td>
+                <td>@a.testAppointment.testappointmenttime</td>
+
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-testappointmentid="@a.testappointmentid">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-testappointmentid="@a.testappointmentid">Delete</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>

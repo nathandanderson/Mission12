@@ -37,8 +37,9 @@ namespace Mission12.Controllers
 
         private ITempleRepository repo { get; set; }
 
+
         [HttpGet]
-        public IActionResult Signup()
+        public IActionResult SignUp()
         {
             return View();
         }

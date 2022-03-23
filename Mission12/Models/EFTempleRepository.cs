@@ -16,6 +16,8 @@ namespace Mission12.Models
 
         public IQueryable<Appointment> Appointments => context.Appointments;
 
+        public IQueryable<Time> Times => context.Times;
+
         public void SaveAppointment(Appointment a)
         {
             context.SaveChanges();

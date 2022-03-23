@@ -70,8 +70,8 @@ namespace Mission12
                     pattern: "{controller=Home}/{action=ViewAll}/{id?}");
 
                 endpoints.MapControllerRoute(
-                    name: "Signup",
-                    pattern: "{controller=Home}/{action=Signup}/{id?}");
+                    name: "Times",
+                    pattern: "{controller=Home}/{action=Times}/{id?}");
             });
         }
     }

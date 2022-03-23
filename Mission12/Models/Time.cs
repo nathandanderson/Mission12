@@ -12,10 +12,6 @@ namespace Mission12.Models
         public int TimeID {get; set;}
         public string Date { get; set; }
         public bool Booked { get; set; }
-
-        //Foreign key Relationship
-        public int TimeValueId { get; set; }
-        public TimeValue TimeValue { get; set; }
-
+        public string TimeValue { get; set; }
     }
 }

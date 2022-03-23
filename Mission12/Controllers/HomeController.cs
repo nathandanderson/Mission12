@@ -24,6 +24,12 @@ namespace Mission12.Controllers
             return View();
         }
 
+        public IActionResult Times()
+        {
+            ViewBag.Times = daContext.Times.ToList();
+            return View();
+        }
+
         public IActionResult ViewAll()
         {
             return View();
@@ -34,7 +40,6 @@ namespace Mission12.Controllers
         [HttpGet]
         public IActionResult Signup()
         {
-            ViewBag.Times = daContext.Times.ToList();
             return View();
         }
 

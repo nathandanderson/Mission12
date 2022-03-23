@@ -7,6 +7,7 @@ namespace Mission12.Models
     public interface ITempleRepository
     {
         IQueryable<Appointment> Appointments { get; }
+        IQueryable<Time> Times { get; }
 
         public void SaveAppointment(Appointment a);
         public void CreateAppointment(Appointment a);

@@ -32,5 +32,29 @@ namespace Mission12.Controllers
             return View();
         }
 
+        private TestISignupRepository repo { get; set; }
+
+        [HttpGet]
+        public IActionResult Signup()
+        {
+            return View(new Appointment());
+        }
+
+        [HttpPost]
+        public IActionResult Signup(Appointment appointment)
+        {
+
+            if (ModelState.IsValid)
+            {
+                repo.SaveAppointment(appointment);
+
+                return RedirectToPage("/Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
     }
 }

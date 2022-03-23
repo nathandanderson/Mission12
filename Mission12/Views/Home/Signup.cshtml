@@ -1,8 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Sign Up Page";
+    @model Mission12.Models.Appointment
 }
 
-@model Appointment
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome to the Sign Up Page</h1>
@@ -16,15 +17,15 @@
 
     <div class="form-group">
         <label asp-for="GroupName">Group Name:</label>
-        <input asp-for="GroupName"/>
+        <input asp-for="GroupName" />
     </div>
     <div class="form-group">
         <label asp-for="GroupSize">Group Size:</label>
-        <input asp-for="GroupSize"/>
+        <input asp-for="GroupSize" />
     </div>
     <div class="form-group">
         <label asp-for="Email">Email:</label>
-        <input asp-for="Email"/>
+        <input asp-for="Email" />
     </div>
     <div class="form-group">
         <label asp-for="Phone">Phone:</label>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Mission12.Models;
 
 namespace Mission12.Controllers
 {
@@ -32,10 +33,10 @@ namespace Mission12.Controllers
             return View();
         }
 
-        private TestISignupRepository repo { get; set; }
+        //private TestISignupRepository repo { get; set; }
 
         [HttpGet]
-        public IActionResult Signup()
+        public IActionResult SignUp()
         {
             return View(new Appointment());
         }

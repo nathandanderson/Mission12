@@ -5,16 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Mission12.Models;
 
 namespace Mission12.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private TempleContext daContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        // Constructor
+        public HomeController(TempleContext temple)
         {
-            _logger = logger;
+            daContext = temple ;
         }
 
         public IActionResult Index()
@@ -27,31 +29,30 @@ namespace Mission12.Controllers
             return View();
         }
 
-        public IActionResult Signup()
-        {
-            return View();
-        }
-
-        private TestISignupRepository repo { get; set; }
+        private ITempleRepository repo { get; set; }
 
         [HttpGet]
         public IActionResult Signup()
         {
-            return View(new Appointment());
+            ViewBag.Times = daContext.Times.ToList();
+            return View();
         }
 
         [HttpPost]
-        public IActionResult Signup(Appointment appointment)
+        public IActionResult Signup(Appointment a)
         {
 
             if (ModelState.IsValid)
             {
-                repo.SaveAppointment(appointment);
+                daContext.Add(a);
+                daContext.SaveChanges();
 
-                return RedirectToPage("/Index");
+                return RedirectToAction("Index");
             }
             else
             {
+                ViewBag.Times = daContext.Times.ToList();
+
                 return View();
             }
         }

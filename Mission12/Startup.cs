@@ -31,10 +31,7 @@ namespace Mission12
                 options.UseSqlite(Configuration["ConnectionStrings:TempleDBConnection"]);
             });
 
-
             services.AddScoped<ITempleRepository, EFTempleRepository>();
-            //services.AddScoped<IDonationRepository, EFDonationRepository>();
-
             services.AddRazorPages();
         }
 
@@ -49,9 +46,9 @@ namespace Mission12
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

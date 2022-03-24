@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission12.Models;
+using Mission12.Models.ViewModels;
 
 namespace Mission12.Controllers
 {
@@ -14,6 +15,7 @@ namespace Mission12.Controllers
     {
         private TempleContext daContext { get; set; }
 
+        private ITempleRepository repo { get; set; }
         // Constructor
         public HomeController(TempleContext temple)
         {
@@ -28,6 +30,7 @@ namespace Mission12.Controllers
         public IActionResult Times()
         {
             ViewBag.Times = daContext.Times.ToList();
+
             return View();
         }
 
@@ -41,13 +44,30 @@ namespace Mission12.Controllers
             return View(entries);
         }
 
-        private ITempleRepository repo { get; set; }
-
-
         [HttpGet]
-        public IActionResult SignUp()
-        {
-            return View();
+        public IActionResult SignUp() {
+
+            var x = new TimeViewModel
+            {
+                Times = repo.Times.Where(x => x.TimeValue || TimeValue == null)
+                .OrderBy(x => x.Date)
+            }
+
+            //var entries = daContext.Times.Select(i => new Time
+            //{
+            //    TimeID = i.TimeID,
+            //    Date = i.Date,
+            //    Booked = i.Booked,
+            //    TimeValue = i.TimeValue
+            //})
+            //.ToList();
+
+            //var x = new TimeViewModel
+            //{
+            //    Times = entries
+            //};
+
+            return View(x);
         }
 
         [HttpPost]

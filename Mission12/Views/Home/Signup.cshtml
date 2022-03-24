@@ -1,9 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Sign Up Page";
-    @model Mission12.Models.Appointment
 }
-
-
+@model Mission12.Models.Appointment
 
 <div class="text-center">
     <h1 class="display-4">Welcome to the Sign Up Page</h1>
@@ -16,7 +14,7 @@
     <h4>Please Sign Up for a Temple Tour</h4>
 
     <div class="form-group">
-        <input type="hidden" asp-for="Time.TimeValue" value="@Model.Time.TimeValue"/>
+        <input type="hidden" asp-for="Time.TimeValue" />
     </div>
 
     <div class="form-group">

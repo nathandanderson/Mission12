@@ -2,13 +2,18 @@
     ViewData["Title"] = "Sign Up Page";
 }
 
-@model Time
+@model IEnumerable<Mission12.Models.ViewModels.TimeViewModel>
 
 <div class="text-center">
     <h1 class="display-4">Select a Time: </h1>
 </div>
-<div class="text-center ">
-    <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeValue="8AM">8:00 AM</a><br />
+@foreach (Time t in Model)
+{
+    <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-Date="@t.Date" asp-route-TimeValue="@t.TimeValue">@t.TimeValue</a>
+    <br />
+}
+@*<div class="text-center ">
+    <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-Date="@t.Date" asp-route-TimeValue="@t.Time">@t.Time</a><br />
     <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeValue="9AM">9:00 AM</a><br />
     <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeValue="10AM">10:00 AM</a><br />
     <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeValue="11AM">11:00 AM</a><br />
@@ -21,4 +26,4 @@
     <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeValue="6PM">6:00 PM</a><br />
     <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeValue="7PM">7:00 PM</a><br />
     <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeValue="8PM">8:00 PM</a><br />
-</div>
+</div>*@

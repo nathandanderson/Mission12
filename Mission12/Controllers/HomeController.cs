@@ -17,7 +17,7 @@ namespace Mission12.Controllers
         // Constructor
         public HomeController(TempleContext temple)
         {
-            daContext = temple ;
+            daContext = temple;
         }
 
         public IActionResult Index()

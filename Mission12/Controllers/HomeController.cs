@@ -31,10 +31,24 @@ namespace Mission12.Controllers
         {
             ViewBag.Times = daContext.Times.ToList();
 
-            return View();
+            var entries = daContext.Times.Select(i => new Time
+            {
+                TimeID = i.TimeID,
+                Date = i.Date,
+                Booked = i.Booked,
+                TimeValue = i.TimeValue
+            })
+          .ToList();
+
+            var x = new TimeViewModel
+            {
+                Times = entries
+            };
+
+            return View(x);
         }
 
-        public IActionResult ViewAll()
+        public IActionResult ViewAll( )
         {
             var entries = daContext.Appointments
                 .Include(x => x.Time)
@@ -45,29 +59,10 @@ namespace Mission12.Controllers
         }
 
         [HttpGet]
-        public IActionResult SignUp() {
+        public IActionResult SignUp(string Date, string TimeValue) { 
 
-            var x = new TimeViewModel
-            {
-                Times = repo.Times.Where(x => x.TimeValue || TimeValue == null)
-                .OrderBy(x => x.Date)
-            }
 
-            //var entries = daContext.Times.Select(i => new Time
-            //{
-            //    TimeID = i.TimeID,
-            //    Date = i.Date,
-            //    Booked = i.Booked,
-            //    TimeValue = i.TimeValue
-            //})
-            //.ToList();
-
-            //var x = new TimeViewModel
-            //{
-            //    Times = entries
-            //};
-
-            return View(x);
+            return View();
         }
 
         [HttpPost]

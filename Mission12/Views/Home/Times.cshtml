@@ -2,12 +2,14 @@
     ViewData["Title"] = "Sign Up Page";
 }
 
-@model IEnumerable<Mission12.Models.ViewModels.TimeViewModel>
+@using Mission12.Models.ViewModels
+
+@model Mission12.Models.ViewModels.TimeViewModel
 
 <div class="text-center">
     <h1 class="display-4">Select a Time: </h1>
 </div>
-@foreach (Time t in Model)
+@foreach (var t in Model.Times)
 {
     <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-Date="@t.Date" asp-route-TimeValue="@t.TimeValue">@t.TimeValue</a>
     <br />

@@ -8,7 +8,7 @@ using Mission12.Models;
 namespace Mission12.Migrations
 {
     [DbContext(typeof(TempleContext))]
-    [Migration("20220323224038_Initial")]
+    [Migration("20220323235536_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

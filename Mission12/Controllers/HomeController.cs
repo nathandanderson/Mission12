@@ -4,17 +4,20 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Mission12.Models;
 
 namespace Mission12.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private TempleContext daContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        // Constructor
+        public HomeController(TempleContext temple)
         {
-            _logger = logger;
+            daContext = temple;
         }
 
         public IActionResult Index()
@@ -22,14 +25,48 @@ namespace Mission12.Controllers
             return View();
         }
 
+        public IActionResult Times()
+        {
+            ViewBag.Times = daContext.Times.ToList();
+            return View();
+        }
+
         public IActionResult ViewAll()
+        {
+            var entries = daContext.Appointments
+                .Include(x => x.Time)
+                .OrderBy(x => x.GroupName)
+                .ToList();
+
+            return View(entries);
+        }
+
+        private ITempleRepository repo { get; set; }
+
+
+        [HttpGet]
+        public IActionResult SignUp()
         {
             return View();
         }
 
-        public IActionResult Signup()
+        [HttpPost]
+        public IActionResult Signup(Appointment a)
         {
-            return View();
+
+            if (ModelState.IsValid)
+            {
+                daContext.Add(a);
+                daContext.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Times = daContext.Times.ToList();
+
+                return View();
+            }
         }
 
     }

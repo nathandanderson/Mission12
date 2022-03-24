@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission12.Models;
 
@@ -32,7 +33,12 @@ namespace Mission12.Controllers
 
         public IActionResult ViewAll()
         {
-            return View();
+            var entries = daContext.Appointments
+                .Include(x => x.Time)
+                .OrderBy(x => x.GroupName)
+                .ToList();
+
+            return View(entries);
         }
 
         private ITempleRepository repo { get; set; }

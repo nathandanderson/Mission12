@@ -48,7 +48,7 @@ namespace Mission12.Controllers
             return View(x);
         }
 
-        public IActionResult ViewAll( )
+        public IActionResult ViewAll(string Date, string TimeValue )
         {
             var entries = daContext.Appointments
                 .Include(x => x.Time)
@@ -59,7 +59,7 @@ namespace Mission12.Controllers
         }
 
         [HttpGet]
-        public IActionResult SignUp(string Date, string TimeValue) { 
+        public IActionResult SignUp() { 
 
 
             return View();
@@ -82,6 +82,25 @@ namespace Mission12.Controllers
 
                 return View();
             }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int appointmentid)
+        {
+            ViewBag.Appointments = daContext.Appointments.ToList();
+
+            var entry = daContext.Appointments.Single(x => x.AppointmentID == appointmentid);
+
+            return View("Signup", entry);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Appointment apt)
+        {
+            daContext.Update(apt);
+            daContext.SaveChanges();
+
+            return RedirectToAction("ViewAll");
         }
 
     }

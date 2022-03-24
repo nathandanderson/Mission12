@@ -23,6 +23,5 @@ namespace Mission12.Models
         //Foreign Key
         public int TimeID { get; set; }
         public Time Time { get; set; }
-
     }
 }

@@ -8,7 +8,7 @@ using Mission12.Models;
 namespace Mission12.Migrations
 {
     [DbContext(typeof(TempleContext))]
-    [Migration("20220323235536_Initial")]
+    [Migration("20220324030618_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,21 +97,77 @@ namespace Mission12.Migrations
                             TimeID = 3,
                             Booked = true,
                             Date = "3/23/2022",
-                            TimeValue = "11:00 AM"
+                            TimeValue = "10:00 AM"
                         },
                         new
                         {
                             TimeID = 4,
                             Booked = true,
-                            Date = "3/24/2022",
-                            TimeValue = "10:00 AM"
+                            Date = "3/23/2022",
+                            TimeValue = "11:00 AM"
                         },
                         new
                         {
                             TimeID = 5,
                             Booked = true,
-                            Date = "3/24/2022",
+                            Date = "3/23/2022",
+                            TimeValue = "12:00 PM"
+                        },
+                        new
+                        {
+                            TimeID = 6,
+                            Booked = true,
+                            Date = "3/23/2022",
+                            TimeValue = "1:00 PM"
+                        },
+                        new
+                        {
+                            TimeID = 7,
+                            Booked = true,
+                            Date = "3/23/2022",
+                            TimeValue = "2:00 PM"
+                        },
+                        new
+                        {
+                            TimeID = 8,
+                            Booked = true,
+                            Date = "3/23/2022",
                             TimeValue = "3:00 PM"
+                        },
+                        new
+                        {
+                            TimeID = 9,
+                            Booked = true,
+                            Date = "3/23/2022",
+                            TimeValue = "4:00 PM"
+                        },
+                        new
+                        {
+                            TimeID = 10,
+                            Booked = true,
+                            Date = "3/23/2022",
+                            TimeValue = "5:00 PM"
+                        },
+                        new
+                        {
+                            TimeID = 11,
+                            Booked = true,
+                            Date = "3/23/2022",
+                            TimeValue = "6:00 PM"
+                        },
+                        new
+                        {
+                            TimeID = 12,
+                            Booked = true,
+                            Date = "3/23/2022",
+                            TimeValue = "7:00 PM"
+                        },
+                        new
+                        {
+                            TimeID = 13,
+                            Booked = true,
+                            Date = "3/23/2022",
+                            TimeValue = "8:00 PM"
                         });
                 });
 

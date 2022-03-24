@@ -37,9 +37,17 @@ namespace Mission12.Models
             mb.Entity<Time>().HasData(
                 new Time { TimeID = 1, Date="3/23/2022", Booked=true, TimeValue = "8:00 AM"},
                 new Time { TimeID = 2, Date = "3/23/2022", Booked = true, TimeValue = "9:00 AM" },
-                new Time { TimeID = 3, Date = "3/23/2022", Booked = true, TimeValue = "11:00 AM" },
-                new Time { TimeID = 4, Date = "3/24/2022", Booked = true, TimeValue = "10:00 AM" },
-                new Time { TimeID = 5, Date = "3/24/2022", Booked = true, TimeValue = "3:00 PM" }
+                new Time { TimeID = 3, Date = "3/23/2022", Booked = true, TimeValue = "10:00 AM" },
+                new Time { TimeID = 4, Date = "3/23/2022", Booked = true, TimeValue = "11:00 AM" },
+                new Time { TimeID = 5, Date = "3/23/2022", Booked = true, TimeValue = "12:00 PM" },
+                new Time { TimeID = 6, Date = "3/23/2022", Booked = true, TimeValue = "1:00 PM" },
+                new Time { TimeID = 7, Date = "3/23/2022", Booked = true, TimeValue = "2:00 PM" },
+                new Time { TimeID = 8, Date = "3/23/2022", Booked = true, TimeValue = "3:00 PM" },
+                new Time { TimeID = 9, Date = "3/23/2022", Booked = true, TimeValue = "4:00 PM" },
+                new Time { TimeID = 10, Date = "3/23/2022", Booked = true, TimeValue = "5:00 PM" },
+                new Time { TimeID = 11, Date = "3/23/2022", Booked = true, TimeValue = "6:00 PM" },
+                new Time { TimeID = 12, Date = "3/23/2022", Booked = true, TimeValue = "7:00 PM" },
+                new Time { TimeID = 13, Date = "3/23/2022", Booked = true, TimeValue = "8:00 PM" }
                 );
 
             mb.Entity<Appointment>().HasData(
@@ -52,7 +60,7 @@ namespace Mission12.Models
                     Phone = "911",
                     TimeID = 1
                 }
-                );
+             );
         }
     }
 }

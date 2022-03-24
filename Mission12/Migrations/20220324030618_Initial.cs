@@ -57,17 +57,57 @@ namespace Mission12.Migrations
             migrationBuilder.InsertData(
                 table: "Times",
                 columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
-                values: new object[] { 3, true, "3/23/2022", "11:00 AM" });
+                values: new object[] { 3, true, "3/23/2022", "10:00 AM" });
 
             migrationBuilder.InsertData(
                 table: "Times",
                 columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
-                values: new object[] { 4, true, "3/24/2022", "10:00 AM" });
+                values: new object[] { 4, true, "3/23/2022", "11:00 AM" });
 
             migrationBuilder.InsertData(
                 table: "Times",
                 columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
-                values: new object[] { 5, true, "3/24/2022", "3:00 PM" });
+                values: new object[] { 5, true, "3/23/2022", "12:00 PM" });
+
+            migrationBuilder.InsertData(
+                table: "Times",
+                columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
+                values: new object[] { 6, true, "3/23/2022", "1:00 PM" });
+
+            migrationBuilder.InsertData(
+                table: "Times",
+                columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
+                values: new object[] { 7, true, "3/23/2022", "2:00 PM" });
+
+            migrationBuilder.InsertData(
+                table: "Times",
+                columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
+                values: new object[] { 8, true, "3/23/2022", "3:00 PM" });
+
+            migrationBuilder.InsertData(
+                table: "Times",
+                columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
+                values: new object[] { 9, true, "3/23/2022", "4:00 PM" });
+
+            migrationBuilder.InsertData(
+                table: "Times",
+                columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
+                values: new object[] { 10, true, "3/23/2022", "5:00 PM" });
+
+            migrationBuilder.InsertData(
+                table: "Times",
+                columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
+                values: new object[] { 11, true, "3/23/2022", "6:00 PM" });
+
+            migrationBuilder.InsertData(
+                table: "Times",
+                columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
+                values: new object[] { 12, true, "3/23/2022", "7:00 PM" });
+
+            migrationBuilder.InsertData(
+                table: "Times",
+                columns: new[] { "TimeID", "Booked", "Date", "TimeValue" },
+                values: new object[] { 13, true, "3/23/2022", "8:00 PM" });
 
             migrationBuilder.InsertData(
                 table: "Appointments",

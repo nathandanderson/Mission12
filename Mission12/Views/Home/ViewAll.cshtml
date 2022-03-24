@@ -16,21 +16,24 @@
             <th>Size of Group</th>
             <th>Email Address</th>
             <th>Phone Number</th>
+            <th>Date</th>
+            <th>Time Slot</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var a in Model)
         {
-            <tr>
-                <td>@a.GroupName</td>
-                <td>@a.GroupSize</td>
-                <td>@a.Email</td>
-                <td>@a.Phone</td>
-                <td>@a.Time.TimeValue</td>
+        <tr>
+            <td>@a.GroupName</td>
+            <td>@a.GroupSize</td>
+            <td>@a.Email</td>
+            <td>@a.Phone</td>
+            <td>@a.Time.Date</td>
+            <td>@a.Time.TimeValue</td>
 
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-appointmentid="@a.AppointmentID">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-appointmentid="@a.AppointmentID">Delete</a></td>
-            </tr>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-appointmentid="@a.AppointmentID">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-appointmentid="@a.AppointmentID">Delete</a></td>
+        </tr>
         }
 
     </tbody>

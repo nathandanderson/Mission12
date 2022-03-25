@@ -72,6 +72,23 @@ namespace Mission12.Controllers
                 return View();
             }
         }
+        [HttpGet]
+        public IActionResult Delete(int appointmentid)
+        {
+            var appointment = daContext.Appointments.Single(x => x.AppointmentID == appointmentid);
+
+            return View(appointment);
+        }
+
+        //Actually delete the movie after asking for confirmation
+        [HttpPost]
+        public IActionResult Delete(Appointment ap)
+        {
+            daContext.Appointments.Remove(ap);
+            daContext.SaveChanges();
+
+            return RedirectToAction("ViewAll");
+        }
 
         [HttpGet]
         public IActionResult Edit(int timeid)

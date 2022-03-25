@@ -33,9 +33,8 @@ namespace Mission12.Controllers
 
         public IActionResult ViewAll()
         {
-            var entries = daContext.Appointments
-                .Include(x => x.Time)
-                .OrderBy(x => x.GroupName)
+            var entries = daContext.Times
+                .Where(x => x.Booked == true)
                 .ToList();
 
             return View(entries);
@@ -45,18 +44,23 @@ namespace Mission12.Controllers
 
 
         [HttpGet]
-        public IActionResult SignUp()
+        public IActionResult SignUp(int timeid)
         {
-            return View();
+
+            var appointment = daContext.Times.Single(x => x.TimeID == timeid);
+
+            return View(appointment);
+
         }
 
         [HttpPost]
-        public IActionResult Signup(Appointment a)
+        public IActionResult Signup(Time t)
         {
 
             if (ModelState.IsValid)
             {
-                daContext.Add(a);
+                t.Booked = true;
+                daContext.Update(t);
                 daContext.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -81,6 +85,46 @@ namespace Mission12.Controllers
         public IActionResult Delete(Appointment ap)
         {
             daContext.Appointments.Remove(ap);
+            daContext.SaveChanges();
+
+            return RedirectToAction("ViewAll");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int timeid)
+        {
+            var appointment = daContext.Times.Single(x => x.TimeID == timeid);
+
+            return View("Signup", appointment);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Time t)
+        {
+            daContext.Update(t);
+            daContext.SaveChanges();
+
+            return RedirectToAction("ViewAll");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int timeid)
+        {
+            var appointment = daContext.Times.Single(x => x.TimeID == timeid);
+
+            return View(appointment);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Time t)
+        {
+            t.Booked = false;
+            t.GroupName = null;
+            t.GroupSize = 0;
+            t.Email = null;
+            t.Phone = null;
+
+            daContext.Update(t);
             daContext.SaveChanges();
 
             return RedirectToAction("ViewAll");

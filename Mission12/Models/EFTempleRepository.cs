@@ -14,25 +14,25 @@ namespace Mission12.Models
             context = temp;
         }
 
-        public IQueryable<Appointment> Appointments => context.Appointments;
+        //public IQueryable<Appointment> Appointments => context.Appointments;
 
-        public IQueryable<Time> Times => context.Times;
+        //public IQueryable<Time> Times => context.Times;
 
-        public void SaveAppointment(Appointment a)
-        {
-            context.SaveChanges();
-        }
+        //public void SaveAppointment(Appointment a)
+        //{
+        //    context.SaveChanges();
+        //}
 
-        public void CreateAppointment(Appointment a)
-        {
-            context.Add(a);
-            context.SaveChanges();
-        }
+        //public void CreateAppointment(Appointment a)
+        //{
+        //    context.Add(a);
+        //    context.SaveChanges();
+        //}
 
-        public void DeleteAppointment(Appointment a)
-        {
-            context.Remove(a);
-            context.SaveChanges();
-        }
+        //public void DeleteAppointment(Appointment a)
+        //{
+        //    context.Remove(a);
+        //    context.SaveChanges();
+        //}
     }
 }

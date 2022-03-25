@@ -2,7 +2,7 @@
     ViewData["Title"] = "View All Page";
 }
 
-@model List<Appointment>
+@model List<Time>
 
 <div class="text-center">
     <h1 class="display-4">All Appointments Page</h1>
@@ -12,6 +12,8 @@
 
     <thead class="font-weight-bold">
         <tr>
+            <th>Date</th>
+            <th>Time</th>
             <th>Name of Group</th>
             <th>Size of Group</th>
             <th>Email Address</th>
@@ -22,14 +24,15 @@
         @foreach (var a in Model)
         {
             <tr>
+                <td>@a.Date</td>
+                <td>@a.TimeValue</td>
                 <td>@a.GroupName</td>
                 <td>@a.GroupSize</td>
                 <td>@a.Email</td>
                 <td>@a.Phone</td>
-                <td>@a.Time.TimeValue</td>
 
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-appointmentid="@a.AppointmentID">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-appointmentid="@a.AppointmentID">Delete</a></td>
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-timeid="@a.TimeID">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-timeid="@a.TimeID">Delete</a></td>
             </tr>
         }
 

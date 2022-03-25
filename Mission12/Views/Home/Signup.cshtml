@@ -1,12 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Sign Up Page";
-    @model Mission12.Models.Appointment
+
 }
 
-
+@model Time
 
 <div class="text-center">
     <h1 class="display-4">Welcome to the Sign Up Page</h1>
+    <h2>You're signing up for the @Model.TimeValue slot on @Model.Date</h2>
 </div>
 
 <form method="post" asp-controller="Home" asp-action="Signup">
@@ -16,24 +17,41 @@
     <h4>Please Sign Up for a Temple Tour</h4>
 
     <div class="form-group">
-        <input type="hidden" asp-for="Time.TimeValue" value="@Model.Time.TimeValue"/>
+        <input type="hidden" asp-for="@Model.TimeID" />
     </div>
 
     <div class="form-group">
-        <label asp-for="GroupName">Group Name:</label>
-        <input asp-for="GroupName" />
+        <input type="hidden" asp-for="@Model.Booked" />
     </div>
+
     <div class="form-group">
-        <label asp-for="GroupSize">Group Size:</label>
-        <input asp-for="GroupSize" />
+        <label asp-for="@Model.Date">Date:</label>
+        <input readonly asp-for="@Model.Date" />
     </div>
+
     <div class="form-group">
-        <label asp-for="Email">Email:</label>
-        <input asp-for="Email" />
+        <label asp-for="@Model.TimeValue">Time:</label>
+        <input readonly asp-for="@Model.TimeValue" />
     </div>
+
     <div class="form-group">
-        <label asp-for="Phone">Phone:</label>
-        <input asp-for="Phone" />
+        <label asp-for="@Model.GroupName">Group Name:</label>
+        <input asp-for="@Model.GroupName" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.GroupSize">Group Size:</label>
+        <input asp-for="@Model.GroupSize" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Email">Email:</label>
+        <input asp-for="@Model.Email" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Phone">Phone:</label>
+        <input asp-for="@Model.Phone" />
     </div>
 
     <div>

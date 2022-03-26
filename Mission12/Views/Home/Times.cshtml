@@ -7,21 +7,198 @@
 <div class="text-center">
     <h1 class="display-4">Select a Time: </h1>
 </div>
+
+<div>
+
+    <a class="p-1 rounded" style="text-decoration:none;" data-bs-toggle="collapse" href="#MyID" role="button" aria-expanded="false" aria-controls="MyID">
+        <h3 style="margin-bottom:0px; padding-bottom:0px;">
+            Testing this out
+        </h3>
+        <span class="text-muted">Click for more/less information</span>
+    </a>
+    <div class="collapse" id="MyID">
+        <p>Here's a bunch of random test text to see if this collapsing card actually works</p>
+    </div>
+
+
+</div>
+
+
 <div class="text-center">
-    @foreach (Time t in ViewBag.Times)
-    {
 
-        @if (t.Booked == false)
+    <div class="card card-body">
+        <a class="p-1 rounded" style="text-decoration:none;" data-bs-toggle="collapse" href="#s_323" role="button" aria-expanded="false" aria-controls="s_323">
+            <h3 style="margin-bottom:0px; padding-bottom:0px;">
+                3/23/2022
+            </h3>
+            <span class="text-muted">Click for Available Time Slots</span>
+        </a>
+        <div class="collapse" id="s_323">
+            @foreach (Time t in ViewBag.Times)
+            {
+                @if (t.Date == "3/23/2022")
+                {
+                    @if (t.Booked == false)
+                    {
+                        <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeID="@t.TimeID">@t.Date : @t.TimeValue</a>
+                        <br />
+                    }
+                    else
+                    {
+                        <a class="btn btn-secondary m-1">@t.TimeValue</a>
+                        <br />
+                    }
+                }
+            }
+        </div>
+    </div>
+    <a class="p-1 rounded" style="text-decoration:none;" data-bs-toggle="collapse" href="#324" role="button" aria-expanded="false" aria-controls="324">
+        <h3 style="margin-bottom:0px; padding-bottom:0px;">
+            3/24/2022
+        </h3>
+        <span class="text-muted">Click for Available Time Slots</span>
+    </a>
+    <div class="collapse" id="324">
+        @foreach (Time t in ViewBag.Times)
         {
-            <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeID="@t.TimeID">@t.Date : @t.TimeValue</a>
-            <br />
+            @if (t.Date == "3/24/2022")
+            {
+                @if (t.Booked == false)
+                {
+                    <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeID="@t.TimeID">@t.Date : @t.TimeValue</a>
+                    <br />
+                }
+                else
+                {
+                    <a class="btn btn-secondary m-1">@t.TimeValue</a>
+                    <br />
+                }
+            }
         }
-        else
+    </div>
+    <a class="p-1 rounded" style="text-decoration:none;" data-bs-toggle="collapse" href="#325" role="button" aria-expanded="false" aria-controls="325">
+        <h3 style="margin-bottom:0px; padding-bottom:0px;">
+            3/25/2022
+        </h3>
+        <span class="text-muted">Click for Available Time Slots</span>
+    </a>
+    <div class="collapse" id="325">
+        @foreach (Time t in ViewBag.Times)
         {
-            <a class="btn btn-secondary m-1">@t.TimeValue</a>
-            <br />
+            @if (t.Date == "3/25/2022")
+            {
+                @if (t.Booked == false)
+                {
+                    <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeID="@t.TimeID">@t.Date : @t.TimeValue</a>
+                    <br />
+                }
+                else
+                {
+                    <a class="btn btn-secondary m-1">@t.TimeValue</a>
+                    <br />
+                }
+            }
         }
+    </div>
+    <a class="p-1 rounded" style="text-decoration:none;" data-bs-toggle="collapse" href="#326" role="button" aria-expanded="false" aria-controls="326">
+        <h3 style="margin-bottom:0px; padding-bottom:0px;">
+            3/26/2022
+        </h3>
+        <span class="text-muted">Click for Available Time Slots</span>
+    </a>
+    <div class="collapse" id="326">
+        @foreach (Time t in ViewBag.Times)
+        {
+            @if (t.Date == "3/26/2022")
+            {
+                @if (t.Booked == false)
+                {
+                    <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeID="@t.TimeID">@t.Date : @t.TimeValue</a>
+                    <br />
+                }
+                else
+                {
+                    <a class="btn btn-secondary m-1">@t.TimeValue</a>
+                    <br />
+                }
+            }
+        }
+    </div>
+    <a class="p-1 rounded" style="text-decoration:none;" data-bs-toggle="collapse" href="#327" role="button" aria-expanded="false" aria-controls="327">
+        <h3 style="margin-bottom:0px; padding-bottom:0px;">
+            3/27/2022
+        </h3>
+        <span class="text-muted">Click for Available Time Slots</span>
+    </a>
+    <div class="collapse" id="327">
+        @foreach (Time t in ViewBag.Times)
+        {
+            @if (t.Date == "3/27/2022")
+            {
+                @if (t.Booked == false)
+                {
+                    <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeID="@t.TimeID">@t.Date : @t.TimeValue</a>
+                    <br />
+                }
+                else
+                {
+                    <a class="btn btn-secondary m-1">@t.TimeValue</a>
+                    <br />
+                }
+            }
+        }
+    </div>
+    <a class="p-1 rounded" style="text-decoration:none;" data-bs-toggle="collapse" href="#328" role="button" aria-expanded="false" aria-controls="328">
+        <h3 style="margin-bottom:0px; padding-bottom:0px;">
+            3/28/2022
+        </h3>
+        <span class="text-muted">Click for Available Time Slots</span>
+    </a>
+    <div class="collapse" id="328">
+        @foreach (Time t in ViewBag.Times)
+        {
+            @if (t.Date == "3/28/2022")
+            {
+                @if (t.Booked == false)
+                {
+                    <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeID="@t.TimeID">@t.Date : @t.TimeValue</a>
+                    <br />
+                }
+                else
+                {
+                    <a class="btn btn-secondary m-1">@t.TimeValue</a>
+                    <br />
+                }
+            }
+        }
+    </div>
+    <a class="p-1 rounded" style="text-decoration:none;" data-bs-toggle="collapse" href="#329" role="button" aria-expanded="false" aria-controls="329">
+        <h3 style="margin-bottom:0px; padding-bottom:0px;">
+            3/29/2022
+        </h3>
+        <span class="text-muted">Click for Available Time Slots</span>
+    </a>
+    <div class="collapse" id="329">
+        @foreach (Time t in ViewBag.Times)
+        {
+            @if (t.Date == "3/29/2022")
+            {
+                @if (t.Booked == false)
+                {
+                    <a class="btn btn-primary m-1" asp-controller="Home" asp-action="Signup" asp-route-TimeID="@t.TimeID">@t.Date : @t.TimeValue</a>
+                    <br />
+                }
+                else
+                {
+                    <a class="btn btn-secondary m-1">@t.TimeValue</a>
+                    <br />
+                }
+            }
+        }
+    </div>
 
-    }
+
+
+
 </div>
 
